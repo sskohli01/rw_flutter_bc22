@@ -17,3 +17,11 @@ The Goal of the bootcamp and me (Sandeep Kohli) is to learn Flutter and Dart in-
 
 ###  Week 1
 In Week 1 we get acquainted with the Flutter/Dart dev tools, IDE, Versioning System (Git). 
+
+## Images
+
+![Week 1 app - page 1.](https://drive.google.com/file/d/1-8b1OOxpLagLcftcr0AA8CaSHrw3bMv9/view?usp=sharing "Week 1 app - page 1")
+
+![Week 1 app - page 2.](https://drive.google.com/file/d/1XVOIy2lO1w--sbkBKBdeEKTYC4LLb_h_/view?usp=sharing "Week 1 app - page 2")
+
+![Week 1 app - page 3](https://drive.google.com/file/d/1avooAO-Fh2mYM-axM4w72kJzkeVBgCql/view?usp=sharing "Week 1 app - page 3")
