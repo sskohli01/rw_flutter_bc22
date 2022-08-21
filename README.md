@@ -18,10 +18,20 @@ The Goal of the bootcamp and me (Sandeep Kohli) is to learn Flutter and Dart in-
 ###  Week 1
 In Week 1 we get acquainted with the Flutter/Dart dev tools, IDE, Versioning System (Git). 
 
-## Images
+## Flutter Doctor Gif
 
-![Week 1 app - page 1.](https://drive.google.com/file/d/1-8b1OOxpLagLcftcr0AA8CaSHrw3bMv9/view?usp=sharing "Week 1 app - page 1")
+![Flutter Doctor Gif](https://github.com/sskohli01/rw_flutter_bc22/blob/week1/images/flutter-doctor.gif "Flutter Doctor Gif")
 
-![Week 1 app - page 2.](https://drive.google.com/file/d/1XVOIy2lO1w--sbkBKBdeEKTYC4LLb_h_/view?usp=sharing "Week 1 app - page 2")
 
-![Week 1 app - page 3](https://drive.google.com/file/d/1avooAO-Fh2mYM-axM4w72kJzkeVBgCql/view?usp=sharing "Week 1 app - page 3")
+## Flutter Apprentice - Chapter 2 App - Images
+
+![Week 1 app - page 1.](https://github.com/sskohli01/rw_flutter_bc22/blob/week1/images/Week%201%20-%20Recipes%20App%20-%20Pg%201.png "Week 1 app - page 1")
+
+![Week 1 app - page 2.](https://github.com/sskohli01/rw_flutter_bc22/blob/week1/images/Week%201%20-%20Recipes%20App%20-%20Pg%202.png "Week 1 app - page 2")
+
+![Week 1 app - page 3](https://github.com/sskohli01/rw_flutter_bc22/blob/week1/images/Week%201%20-%20Recipes%20App%20-%20Pg%203.png "Week 1 app - page 3")
+
+
+## Pokemon App - Gif
+
+![Pokemon App - Gif](https://github.com/sskohli01/rw_flutter_bc22/blob/week1/images/flutter-doctor.gif "Pokemon App - Gif")
