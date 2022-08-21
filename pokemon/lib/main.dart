@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon/pokemon_detail.dart';
 
 import 'pokemon.dart';
 
@@ -43,7 +44,20 @@ class MyHomePage extends StatelessWidget {
               ? ListView.builder(
                   itemCount: Pokemon.pokemonEntries.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return buildPokemonCard(Pokemon.pokemonEntries[index]);
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return PokemonDetail(
+                                  pokemon: Pokemon.pokemonEntries[index]);
+                            },
+                          ),
+                        );
+                      },
+                      child: buildPokemonCard(Pokemon.pokemonEntries[index]),
+                    );
                   },
                 )
               : const Text(
