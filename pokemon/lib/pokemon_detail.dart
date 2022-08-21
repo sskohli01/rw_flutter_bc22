@@ -18,9 +18,8 @@ class _PokemonDetailState extends State<PokemonDetail> {
         title: Text(widget.pokemon.name),
       ),
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: Column(
+        child: ListView(
+          padding: const EdgeInsets.all(20.0),
           children: [
             SizedBox(
               height: 350,
@@ -35,103 +34,96 @@ class _PokemonDetailState extends State<PokemonDetail> {
             buildPokemonDetailCard(widget.pokemon)
           ],
         ),
-      )),
+      ),
     );
   }
 }
 
 Widget buildPokemonDetailCard(Pokemon pokemon) {
   return Card(
-      color: Colors.lightBlueAccent,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-      child: Expanded(
-        child: CustomScrollView(
-          primary: false,
-          shrinkWrap: true,
-          slivers: [
-            SliverPadding(
-              padding: const EdgeInsets.all(20),
-              sliver: SliverGrid.count(
-                crossAxisSpacing: 5,
-                mainAxisSpacing: 5,
-                crossAxisCount: 2,
-                children: <Widget>[
-                  Column(children: [
-                    const Text('Pokedex No',
-                        style: TextStyle(
-                            fontFamily: 'Flexo-Medium',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      pokemon.pokedex,
-                      style: TextStyle(
-                        fontFamily: 'Flexo-Medium',
-                        fontSize: 20,
-                      ),
-                    ),
-                  ]),
-                  Column(children: [
-                    const Text('Name',
-                        style: TextStyle(
-                            fontFamily: 'Flexo-Medium',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      pokemon.name,
-                      style: TextStyle(
-                        fontFamily: 'Flexo-Medium',
-                        fontSize: 20,
-                      ),
-                    ),
-                  ]),
-                  Column(children: [
-                    const Text('Pokedex No',
-                        style: TextStyle(
-                            fontFamily: 'Flexo-Medium',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      pokemon.pokedex,
-                      style: TextStyle(
-                        fontFamily: 'Flexo-Medium',
-                        fontSize: 20,
-                      ),
-                    ),
-                  ]),
-                  Column(children: [
-                    const Text('Name',
-                        style: TextStyle(
-                            fontFamily: 'Flexo-Medium',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      pokemon.name,
-                      style: TextStyle(
-                        fontFamily: 'Flexo-Medium',
-                        fontSize: 20,
-                      ),
-                    ),
-                  ]),
-                ],
-              ),
+    color: Colors.lightBlueAccent,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+    child: GridView.count(
+      primary: false,
+      padding: const EdgeInsets.all(20),
+      crossAxisSpacing: 10,
+      mainAxisSpacing: 10,
+      crossAxisCount: 2,
+      shrinkWrap: true,
+      children: <Widget>[
+        Column(children: [
+          const Text('Pokedex No',
+              style: TextStyle(
+                  fontFamily: 'Flexo-Medium',
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white)),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            pokemon.pokedex,
+            style: TextStyle(
+              fontFamily: 'Flexo-Medium',
+              fontSize: 20,
             ),
-          ],
-        ),
-      ));
+          ),
+        ]),
+        Column(children: [
+          const Text('Name',
+              style: TextStyle(
+                  fontFamily: 'Flexo-Medium',
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white)),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            pokemon.name,
+            style: TextStyle(
+              fontFamily: 'Flexo-Medium',
+              fontSize: 20,
+            ),
+          ),
+        ]),
+        Column(children: [
+          const Text('Type',
+              style: TextStyle(
+                  fontFamily: 'Flexo-Medium',
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white)),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            pokemon.type.join(', '),
+            style: TextStyle(
+              fontFamily: 'Flexo-Medium',
+              fontSize: 20,
+            ),
+          ),
+        ]),
+        Column(children: [
+          const Text('Caught Location',
+              style: TextStyle(
+                  fontFamily: 'Flexo-Medium',
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white)),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            pokemon.caughtLocation,
+            style: TextStyle(
+              fontFamily: 'Flexo-Medium',
+              fontSize: 20,
+            ),
+          ),
+        ]),
+      ],
+    ),
+  );
 }
