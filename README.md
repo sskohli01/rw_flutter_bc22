@@ -34,4 +34,4 @@ In Week 1 we get acquainted with the Flutter/Dart dev tools, IDE, Versioning Sys
 
 ## Pokemon App - Gif
 
-![Pokemon App - Gif](https://github.com/sskohli01/rw_flutter_bc22/blob/week1/images/flutter-doctor.gif "Pokemon App - Gif")
+![Pokemon App - Gif](https://github.com/sskohli01/rw_flutter_bc22/blob/week1/images/pokemon-app.gif "Pokemon App - Gif")
