@@ -63,7 +63,7 @@ Widget buildPokemonDetailCard(Pokemon pokemon) {
           ),
           Text(
             pokemon.pokedex,
-            style: TextStyle(
+            style: const TextStyle(
               fontFamily: 'Flexo-Medium',
               fontSize: 20,
             ),
@@ -81,7 +81,7 @@ Widget buildPokemonDetailCard(Pokemon pokemon) {
           ),
           Text(
             pokemon.name,
-            style: TextStyle(
+            style: const TextStyle(
               fontFamily: 'Flexo-Medium',
               fontSize: 20,
             ),
@@ -99,7 +99,7 @@ Widget buildPokemonDetailCard(Pokemon pokemon) {
           ),
           Text(
             pokemon.type.join(', '),
-            style: TextStyle(
+            style: const TextStyle(
               fontFamily: 'Flexo-Medium',
               fontSize: 20,
             ),
@@ -117,7 +117,7 @@ Widget buildPokemonDetailCard(Pokemon pokemon) {
           ),
           Text(
             pokemon.caughtLocation,
-            style: TextStyle(
+            style: const TextStyle(
               fontFamily: 'Flexo-Medium',
               fontSize: 20,
             ),
