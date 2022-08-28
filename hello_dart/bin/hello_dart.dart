@@ -7,7 +7,7 @@ void main(List<String> arguments) {
   hello_dart.challenge3();
   hello_dart.challenge4();
   hello_dart.challenge5();*/
-  //hello_dart.week2Assignment1();
-  //hello_dart.week2Assignment2(45);
+  hello_dart.week2Assignment1();
+  hello_dart.week2Assignment2(45);
   hello_dart.week2Assignment3();
 }
