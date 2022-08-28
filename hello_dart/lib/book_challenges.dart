@@ -8,6 +8,8 @@ import 'package:vector_math/vector_math.dart';
 /// value for the expression of String concatenation and interpolation
 void week2Assignment3() {
   print(
+      "\n=================================================================================================");
+  print(
       "Flutter Bootcamp: Week 2: Assignment 3: String concatenation and interpolation");
   num age = 13;
   num zero = 0;
@@ -36,6 +38,8 @@ Some kids prayed, but I couldn’t. I just stared at the roses in her corsage.''
 /// value for the expression of sin2x + cos2x
 void week2Assignment2(double degrees) {
   print(
+      "\n=================================================================================================");
+  print(
       "Flutter Bootcamp: Week 2: Assignment 2: value for the expression of sin2x + cos2x");
   var radian = radians(degrees);
   print("degree = $degrees, radian value = $radian");
@@ -57,6 +61,8 @@ void week2Assignment2(double degrees) {
 /// return value: void
 /// Calls a method challenge5, finds the max of the 2 roots and displays the max and integer values of the 2 roots
 void week2Assignment1() {
+  print(
+      "\n=================================================================================================");
   print("Flutter Bootcamp: Week 2: Assignment 1: ");
   var roots = challenge5();
   if (roots.length == 2) {
