@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
+import "social_buttons.dart";
+import 'colors.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -52,14 +55,7 @@ class _LoginState extends State<Login> {
             children: [
               ElevatedButton.icon(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const MyHomePage();
-                      },
-                    ),
-                  );
+                  loginSuccessful(context);
                 },
                 icon: const Icon(Icons.login),
                 label: const Text('Sign In'),
@@ -75,9 +71,48 @@ class _LoginState extends State<Login> {
                 label: const Text('Clear'),
               ),
             ],
-          )
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const Text(
+            "Or, login with...",
+            style: TextStyle(color: Colors.grey, fontSize: 10),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomWidgets.socialButtonCircle(
+                  googleColor, FontAwesomeIcons.googlePlusG,
+                  iconColor: Colors.white, onTap: () {
+                loginSuccessful(context);
+              }),
+              const SizedBox(
+                width: 30,
+              ),
+              CustomWidgets.socialButtonCircle(
+                  linkedinColor, FontAwesomeIcons.linkedinIn,
+                  iconColor: Colors.white, onTap: () {
+                loginSuccessful(context);
+              }),
+            ],
+          ),
         ],
       ),
     );
   }
+}
+
+void loginSuccessful(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) {
+        return const MyHomePage();
+      },
+    ),
+  );
 }
