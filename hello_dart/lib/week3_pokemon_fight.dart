@@ -93,26 +93,35 @@ class Pokemon {
     hitPoints += byPoints;
   }
 
+  static void revivePokemon(List<Pokemon> Pokemons) {
+    Pokemons.forEach((pokemon) {
+      pokemon.hitPoints = 10;
+      print('${pokemon.name}  healed up to 10 HP');
+    });
+  }
+
   @override
   String toString() {
     return '$name($hitPoints)';
   }
 }
 
-void initFight() {
+List<Pokemon> createPokemons() {
   final Pokemons = [
     Pokemon(name: 'Charmander', type: PokemonType.Fire),
     Pokemon(name: 'Bulbasaur', type: PokemonType.Grass),
     Pokemon(name: 'Squirtle', type: PokemonType.Water),
   ];
-  startFight(Pokemons);
+  return Pokemons;
 }
 
-void startFight(List<Pokemon> Pokemons) {
+//main function which starts the fight between different pokemons
+void startFight() {
+  final Pokemons = createPokemons();
+  final PokemonsCopy = createPokemons();
   final random = Random();
   Pokemon firstPokemon, secondPokemon;
   var bContinue = false;
-  var i = 0;
   do {
     firstPokemon = Pokemons[random.nextInt(Pokemons.length)];
     while (firstPokemon.hitPoints < 0) {
@@ -130,13 +139,15 @@ void startFight(List<Pokemon> Pokemons) {
 
     secondPokemon.updatehitPoints(byPoints: -1);
     bContinue = shouldFightContinue(Pokemons);
-    i++;
   } while (bContinue);
 
   print('A VICTOR EMERGES!');
   print('${Pokemons.first.name} has won the battle.');
+  Pokemon.revivePokemon(PokemonsCopy);
 }
 
+///function which determines if the pokemons have enough Hitpoints
+///left to fight
 bool shouldFightContinue(Pokemons) {
   final lostPokemons = <Pokemon>{};
   for (final pokemon in Pokemons) {

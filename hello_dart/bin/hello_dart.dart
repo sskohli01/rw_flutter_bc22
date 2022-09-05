@@ -19,5 +19,5 @@ void main(List<String> arguments) {
   // Week 3 Assignments - Start
   //sarahFoodJournal();
 
-  initFight();
+  startFight();
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
-import "social_buttons.dart";
+import 'social_buttons.dart';
 import 'colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -94,7 +94,7 @@ class _LoginState extends State<Login> {
             height: 30,
           ),
           const Text(
-            "Or, login with...",
+            'Or, login with...',
             style: TextStyle(color: Colors.grey, fontSize: 10),
           ),
           const SizedBox(
@@ -146,9 +146,9 @@ String returnErrorMessage(MessageType val) {
     case MessageType.emailInvalid:
       return 'Invalid email address.';
     case MessageType.passwordInvalid:
-      return 'Weak Password. Please use at least one uppercase letter,\none lowercase letter, one number, and one special character.';
+      return '''Weak Password. Please use at least one uppercase letter,\none lowercase letter, one number, and one special character.''';
     default:
-      return "Message type not found. $val";
+      return 'Message type not found. $val';
   }
 }
 
@@ -166,7 +166,8 @@ String? isValidPassword(String? password) {
     return returnErrorMessage(MessageType.passwordLen);
   }
 
-  //regex for third condition, password should have at least one uppercase letter,\none lowercase letter, one number, and one special character
+  //regex for third condition, password should have at least one uppercase
+  //letter,\none lowercase letter, one number, and one special character
   const pattern =
       r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{6,}$';
   final regExp = RegExp(pattern);
@@ -211,7 +212,8 @@ void validateFields(BuildContext context, GlobalKey<FormState> formKey) {
   }
 }
 
-//Method: loginSuccessful: Navigates to the next screen on successful form validation
+//Method: loginSuccessful: Navigates to the next screen on successful
+// form validation
 //params: BuildContext
 //returns: void
 void loginSuccessful(BuildContext context) {
