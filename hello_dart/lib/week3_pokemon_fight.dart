@@ -1,71 +1,10 @@
 import 'dart:math';
 
-const pokemonTypes = [
-  {
-    'name': PokemonType.Normal,
-    'immunes': [PokemonType.Ghost],
-    'weaknesses': [PokemonType.Rock, PokemonType.Steel],
-    'strengths': []
-  },
-  {
-    'name': PokemonType.Fire,
-    'immunes': [],
-    'weaknesses': [
-      PokemonType.Fire,
-      PokemonType.Water,
-      PokemonType.Rock,
-      PokemonType.Dragon
-    ],
-    'strengths': [
-      PokemonType.Grass,
-      PokemonType.Ice,
-      PokemonType.Bug,
-      PokemonType.Steel
-    ]
-  },
-  {
-    'name': PokemonType.Water,
-    'immunes': [],
-    'weaknesses': [PokemonType.Water, PokemonType.Grass, PokemonType.Dragon],
-    'strengths': [PokemonType.Fire, PokemonType.Ground, PokemonType.Rock]
-  },
-  {
-    'name': PokemonType.Electric,
-    'immunes': [PokemonType.Ground],
-    'weaknesses': [PokemonType.Electric, PokemonType.Grass, PokemonType.Dragon],
-    'strengths': [PokemonType.Water, PokemonType.Flying]
-  },
-  {
-    'name': PokemonType.Grass,
-    'immunes': [],
-    'weaknesses': [
-      PokemonType.Fire,
-      PokemonType.Grass,
-      'Poison',
-      PokemonType.Flying,
-      PokemonType.Bug,
-      PokemonType.Dragon,
-      PokemonType.Steel
-    ],
-    'strengths': [PokemonType.Water, PokemonType.Ground, PokemonType.Rock]
-  },
-  {
-    'name': PokemonType.Ice,
-    'immunes': [],
-    'weaknesses': [
-      PokemonType.Fire,
-      PokemonType.Water,
-      PokemonType.Ice,
-      PokemonType.Steel
-    ],
-    'strengths': [
-      PokemonType.Grass,
-      PokemonType.Ground,
-      PokemonType.Flying,
-      PokemonType.Dragon
-    ]
-  },
-];
+const pokemonStrengths = {
+  PokemonType.Fire: {'strong': PokemonType.Grass, 'weak': PokemonType.Water},
+  PokemonType.Water: {'strong': PokemonType.Fire, 'weak': PokemonType.Grass},
+  PokemonType.Grass: {'strong': PokemonType.Water, 'weak': PokemonType.Fire},
+};
 
 enum PokemonType {
   Normal,
@@ -87,9 +26,9 @@ class Pokemon {
   Pokemon({required this.name, required this.type, this.hitPoints = 10});
   final String name;
   final PokemonType type;
-  int hitPoints;
+  double hitPoints;
 
-  void updatehitPoints({required int byPoints}) {
+  void updatehitPoints({required double byPoints}) {
     hitPoints += byPoints;
   }
 
@@ -136,8 +75,14 @@ void startFight() {
     } else {
       print('$firstPokemon attacks $secondPokemon');
     }
-
-    secondPokemon.updatehitPoints(byPoints: -1);
+    final firstPokemonStrengths = pokemonStrengths[firstPokemon.type];
+    if (firstPokemonStrengths?['strong'] == secondPokemon.type) {
+      secondPokemon.updatehitPoints(byPoints: -2);
+    } else if (firstPokemonStrengths?['weak'] == secondPokemon.type) {
+      secondPokemon.updatehitPoints(byPoints: -0.5);
+    } else {
+      secondPokemon.updatehitPoints(byPoints: -1);
+    }
     bContinue = shouldFightContinue(Pokemons);
   } while (bContinue);
 
