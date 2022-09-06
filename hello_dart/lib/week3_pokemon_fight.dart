@@ -56,6 +56,11 @@ List<Pokemon> createPokemons() {
 
 //main function which starts the fight between different pokemons
 void startFight() {
+  print(
+      '\n====================================================================');
+  print('''Flutter Bootcamp: Week 3: Assignment 2: Pokemon Fight''');
+  print(
+      '======================================================================');
   final Pokemons = createPokemons();
   final PokemonsCopy = createPokemons();
   final random = Random();

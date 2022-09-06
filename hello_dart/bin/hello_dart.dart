@@ -1,5 +1,5 @@
 //import 'package:hello_dart/book_challenges.dart' as hello_dart;
-//import 'package:hello_dart/week3_sarah_food.dart';
+import 'package:hello_dart/week3_sarah_food.dart';
 import 'package:hello_dart/week3_pokemon_fight.dart';
 
 void main(List<String> arguments) {
@@ -17,7 +17,7 @@ void main(List<String> arguments) {
   // Week 2 Assignments - End
 
   // Week 3 Assignments - Start
-  //sarahFoodJournal();
+  sarahFoodJournal();
 
   startFight();
 }
