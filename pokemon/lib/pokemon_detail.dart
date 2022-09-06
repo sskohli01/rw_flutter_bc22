@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon/pokemon.dart';
+import 'pokemon.dart';
 
 class PokemonDetail extends StatefulWidget {
   final Pokemon pokemon;
@@ -98,7 +98,7 @@ Widget buildPokemonDetailCard(Pokemon pokemon) {
             height: 15,
           ),
           Text(
-            pokemon.type.join(', '),
+            pokemon.strTypes(),
             style: const TextStyle(
               fontFamily: 'Flexo-Medium',
               fontSize: 20,

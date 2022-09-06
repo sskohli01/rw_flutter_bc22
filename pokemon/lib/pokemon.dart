@@ -1,21 +1,39 @@
+enum PokemonType { Grass, Poison, Water, Ground, Rock, Fire, Flying }
+
 class Pokemon {
   String pokedex;
   String name;
-  List<String> type;
+  List<PokemonType> type;
   String caughtLocation;
   String imageURL;
 
   Pokemon(
       this.pokedex, this.name, this.type, this.caughtLocation, this.imageURL);
 
-  static List<Pokemon> pokemonEntries1 = [];
+  //converts PokemonType to String
+  String strTypes() {
+    final sTypes = <String>[];
+    for (final pType in type) {
+      sTypes.add(pType.toString().split('.')[1]);
+    }
+    return sTypes.join(', ');
+  }
+
   static List<Pokemon> pokemonEntries = [
-    Pokemon('001', 'Bulbasaur', ['Grass', 'Poison'], 'Home', 'assets/001.png'),
-    Pokemon('002', 'Ivysaur', ['Grass', 'Poison'], 'Home', 'assets/002.png'),
-    Pokemon('003', 'Venusaur', ['Grass', 'Poison'], 'Home', 'assets/003.png'),
-    Pokemon('004', 'Charmander', ['Water', 'Ground', 'Rock'], 'Park',
+    Pokemon('001', 'Bulbasaur', [PokemonType.Grass, PokemonType.Poison], 'Home',
+        'assets/001.png'),
+    Pokemon('002', 'Ivysaur', [PokemonType.Grass, PokemonType.Poison], 'Home',
+        'assets/002.png'),
+    Pokemon('003', 'Venusaur', [PokemonType.Grass, PokemonType.Poison], 'Home',
+        'assets/003.png'),
+    Pokemon(
+        '004',
+        'Charmander',
+        [PokemonType.Water, PokemonType.Ground, PokemonType.Rock],
+        'Park',
         'assets/004.png'),
-    Pokemon('005', 'Chameleon', ['Fire'], 'Park', 'assets/005.png'),
-    Pokemon('006', 'Charizard', ['Fire', 'Flying'], 'Tree', 'assets/006.png'),
+    Pokemon('005', 'Chameleon', [PokemonType.Fire], 'Park', 'assets/005.png'),
+    Pokemon('006', 'Charizard', [PokemonType.Fire, PokemonType.Flying], 'Tree',
+        'assets/006.png'),
   ];
 }
