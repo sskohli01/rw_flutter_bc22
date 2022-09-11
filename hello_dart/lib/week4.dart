@@ -1,3 +1,5 @@
+import 'pokemon.dart';
+
 ///  Assignment 1.2
 ///  a function which takes 3 Parameters: the first name of type
 ///  String (required parameter), surname of type String(optional parameter),
@@ -45,27 +47,9 @@ void sortAndCapitalizePokemons() {
 /// Use the where method to filter the pokemon as per their types.
 /// Create lists like firePokemons, waterPokemons, grassPokemons.
 /// Make sure every pokemon is sorted.
-enum PokemonType { Grass, Water, Fire, Fly, Electric }
+//enum PokemonType { Grass, Water, Fire, Fly, Electric }
 
 void categorizePokemons() {
-  final pokemons = [
-    {'name': 'Bulbasaur', 'type': PokemonType.Grass, 'speed': 30},
-    {'name': 'Squirtle', 'type': PokemonType.Water, 'speed': 24},
-    {'name': 'Charmander', 'type': PokemonType.Fire, 'speed': 40},
-    {'name': 'Venusaur', 'type': PokemonType.Grass, 'speed': 40},
-    {'name': 'Caterpie', 'type': 'bug', 'speed': 30},
-    {'name': 'Pidgey', 'type': PokemonType.Fly, 'speed': 30},
-    {'name': 'Pikachu', 'type': PokemonType.Electric, 'speed': 50},
-    {'name': 'Raichu', 'type': PokemonType.Electric, 'speed': 60},
-    {'name': 'Rattata', 'type': 'normal', 'speed': 40},
-    {'name': 'Charmelion', 'type': PokemonType.Fire, 'speed': 40},
-    {'name': 'Charizard', 'type': PokemonType.Fire, 'speed': 50},
-    {'name': 'Spearow', 'type': PokemonType.Fly, 'speed': 40},
-    {'name': 'Oddish', 'type': PokemonType.Grass, 'speed': 20},
-    {'name': 'Poliwag', 'type': PokemonType.Water, 'speed': 50},
-    {'name': 'Poliwhirl', 'type': PokemonType.Water, 'speed': 50}
-  ];
-
   //Loop through Pokemon Types
   //Get all pokemons of that type
   // store them in a map of that type
@@ -73,14 +57,16 @@ void categorizePokemons() {
   final pokemonCateg = {};
   for (final type in PokemonType.values) {
     final sType = type.toString().split('.').last;
-    pokemonCateg[sType] = 
-      pokemons.where((pokemon) => pokemon['type'] == type).toList();
+    pokemonCateg[sType] =
+        pokemonMap.where((pokemon) => pokemon['type'] == type).toList();
     pokemonCateg[sType].sort((pokemon1, pokemon2) =>
-      pokemon1['name'].toString().compareTo(pokemon2['name'].toString()));
+        pokemon1['name'].toString().compareTo(pokemon2['name'].toString()));
   }
 
   for (final entry in pokemonCateg.entries) {
-    print('Pokemons of type ${entry.key}');
-    print(entry.value);
+    if (entry.value.length > 0) {
+      print('Pokemons of type ${entry.key}');
+      print(entry.value);
+    }
   }
 }

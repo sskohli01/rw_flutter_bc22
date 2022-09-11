@@ -1,49 +1,6 @@
 import 'dart:math';
 
-const pokemonStrengths = {
-  PokemonType.Fire: {'strong': PokemonType.Grass, 'weak': PokemonType.Water},
-  PokemonType.Water: {'strong': PokemonType.Fire, 'weak': PokemonType.Grass},
-  PokemonType.Grass: {'strong': PokemonType.Water, 'weak': PokemonType.Fire},
-};
-
-enum PokemonType {
-  Normal,
-  Grass,
-  Electric,
-  Water,
-  Fire,
-  Flying,
-  Dragon,
-  Rock,
-  Ice,
-  Steel,
-  Bug,
-  Ghost,
-  Ground
-}
-
-class Pokemon {
-  Pokemon({required this.name, required this.type, this.hitPoints = 10});
-  final String name;
-  final PokemonType type;
-  double hitPoints;
-
-  void updatehitPoints({required double byPoints}) {
-    hitPoints += byPoints;
-  }
-
-  static void revivePokemon(List<Pokemon> Pokemons) {
-    Pokemons.forEach((pokemon) {
-      pokemon.hitPoints = 10;
-      print('${pokemon.name}  healed up to 10 HP');
-    });
-  }
-
-  @override
-  String toString() {
-    return '$name($hitPoints)';
-  }
-}
+import 'pokemon.dart';
 
 List<Pokemon> createPokemons() {
   final Pokemons = [
