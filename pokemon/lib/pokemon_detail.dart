@@ -14,13 +14,31 @@ class _PokemonDetailState extends State<PokemonDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.pokemon.name),
-      ),
+      appBar: AppBar(title: Text(widget.pokemon.name)),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(20.0),
           children: [
+            Row(children: [
+              const SizedBox(
+                width: 5,
+              ),
+              IconButton(
+                icon: favePokemons.containsKey(widget.pokemon.name)
+                    ? const Icon(Icons.favorite)
+                    : const Icon(Icons.favorite_outline),
+                tooltip: 'Add to favorites',
+                onPressed: () {
+                  setState(() {
+                    if (favePokemons.containsKey(widget.pokemon.name)) {
+                      favePokemons.remove(widget.pokemon.name);
+                    } else {
+                      favePokemons[widget.pokemon.name] = 1;
+                    }
+                  });
+                },
+              ),
+            ]),
             SizedBox(
               height: 350,
               width: double.infinity,
@@ -31,7 +49,7 @@ class _PokemonDetailState extends State<PokemonDetail> {
             const SizedBox(
               height: 10,
             ),
-            buildPokemonDetailCard(widget.pokemon)
+            DetailCard(widget.pokemon)
           ],
         ),
       ),
@@ -39,7 +57,7 @@ class _PokemonDetailState extends State<PokemonDetail> {
   }
 }
 
-Widget buildPokemonDetailCard(Pokemon pokemon) {
+Widget DetailCard(Pokemon pokemon) {
   return Card(
     color: Colors.lightBlueAccent,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),

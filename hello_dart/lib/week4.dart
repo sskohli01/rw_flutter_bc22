@@ -1,5 +1,33 @@
 import 'pokemon.dart';
 
+/// Assignment 1.1
+/// Explain in your words Nullable vs Non-Nullable types and
+/// what are null aware operators. (Comment the answer in the class file).
+/// Ans 1.1
+/// Non-Nullable Type: In Dart Safe nullability was introduced.
+/// That means,   Null is no longer a subtype of available types
+/// like int, num, String, etc. No type except the special Null class
+///  permits the value null. Dart has made all types non-nullable by default.
+/// So, If you have a variable of type String, it will always contain a string.
+/// Nullable Types: To allow a type to accept any value, or the value null,
+/// dart provides a nullable type by appending ? at the end of the underlying
+///  base type. So String becomes String?.  It can now accept all String Values
+///  and also the value null.
+/// Under the hood, this is essentially defining a union of the underlying type
+///  and the Null type. So String? would be a shorthand for String|Null if
+///  Dart had full-featured union types.
+///Null Aware Operators:
+/// Null-Aware operators can help you handle potentially null values.
+/// Here they are in brief:
+/// If-null operator (??)
+/// Null-aware assignment operator (??=)
+/// Null-aware access operator (?.)
+/// Null-aware method invocation operator (?.)
+/// Null assertion operator (!)
+/// Null-aware cascade operator (?..)
+/// Null-aware index operator (?[])
+/// Null-aware spread operator (...?)
+
 ///  Assignment 1.2
 ///  a function which takes 3 Parameters: the first name of type
 ///  String (required parameter), surname of type String(optional parameter),

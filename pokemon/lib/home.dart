@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'pokemon.dart';
 import 'pokemon_detail.dart';
 import 'pokemon_card.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  var faveIcon = Icons.favorite;
+  var screenTitle = '';
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +26,34 @@ class MyHomePage extends StatelessWidget {
               ),
       ),
       appBar: AppBar(
-        title: const Text('My Pokemon'),
+        title: Text(screenTitle),
         actions: [
+          IconButton(
+            onPressed: () {
+              if (faveIcon == Icons.favorite) {
+                if (favePokemons.length > 0) {
+                  setState(() {
+                    faveIcon = Icons.home;
+                    screenTitle = 'Favorite Pokemons';
+                    Pokemon.pokemonEntries.clear();
+                    final fpe = Pokemon.favePokemonEntries();
+                    Pokemon.pokemonEntries.addAll(fpe);
+                  });
+                } else {
+                  showToastMessage(
+                      '''Please add any Pokemon to favorite list first!''');
+                }
+              } else {
+                setState(() {
+                  faveIcon = Icons.favorite;
+                  screenTitle = 'Pokemon - Home';
+                  Pokemon.pokemonEntries.clear();
+                  Pokemon.pokemonEntries.addAll(Pokemon.generatePokemonList());
+                });
+              }
+            },
+            icon: Icon(faveIcon),
+          ),
           IconButton(
               onPressed: () {
                 // method to show the search bar
@@ -28,11 +62,24 @@ class MyHomePage extends StatelessWidget {
                     // delegate to customize the search bar
                     delegate: CustomSearchDelegate());
               },
-              icon: const Icon(Icons.search))
+              icon: const Icon(Icons.search)),
         ],
       ),
     );
   }
+}
+
+//create this function, so that, you needn't to configure toast every time
+void showToastMessage(String message) {
+  Fluttertoast.showToast(
+      msg: message, //message to show toast
+      toastLength: Toast.LENGTH_LONG, //duration for message to show
+      gravity: ToastGravity.CENTER, //where you want to show, top, bottom
+      timeInSecForIosWeb: 1, //for iOS only
+      //backgroundColor: Colors.red, //background Color for message
+      textColor: Colors.white, //message text color
+      fontSize: 16.0 //message font size
+      );
 }
 
 @override
@@ -50,8 +97,14 @@ Widget? PokemonList(BuildContext context, myPokemon) {
               },
             ),
           );
+          /*.whenComplete(() {
+            setState(() {
+              Pokemon.pokemonEntries.clear();
+              Pokemon.pokemonEntries.addAll(Pokemon.generatePokemonList());
+            });
+          });*/
         },
-        child: buildPokemonCard(myPokemon[index]),
+        child: PokemonCard(pokemon: myPokemon[index]),
       );
     },
   );

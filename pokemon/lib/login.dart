@@ -17,6 +17,12 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    print('Width of Screen: $width');
+
+    final height = MediaQuery.of(context).size.height;
+    print('Height of Screen: $height');
+
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
       child: Column(
